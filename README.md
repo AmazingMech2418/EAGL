@@ -1,2 +1,2 @@
-# Topaz
+# TopazLang
 A programming language
