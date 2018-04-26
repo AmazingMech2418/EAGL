@@ -1,2 +1,2 @@
 # EAGL
-A programming language
+Executable Application Graphics Language
