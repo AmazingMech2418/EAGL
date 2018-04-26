@@ -1,4 +1,4 @@
-# TopazLang
+# EAGL
 ## Status
 Library - cd, open, get directory
 Language - None Yet
