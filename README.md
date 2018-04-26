@@ -1,2 +1,2 @@
-# TopazLang
+# EAGL
 A programming language
