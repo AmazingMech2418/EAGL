@@ -1,4 +1,5 @@
 // from ObjectifyJS strings
+var functions = {};
 String.prototype.splitBrackets=function(open,close) {
 var a = [""];
 var brackets = 0;
@@ -37,15 +38,22 @@ function splitCode(code,splitter,nodata) {
   }
   return a;
 }
-
+function compileLine(cmd,params, command) {
+params = splitCode(cmd,"|","$");
+command = params[0];
+    params = splitCode(params[1],' ','"');
+    for (var z=0; z<params.length; z++) {
+    if (params[z].search("$")!==-1) {
+    params[z] = compileLine(params[z].slice(1,params[z].length-1));
+    }
+    }
+  return eval(functions[command].replace("ARG0",params[0]).replace("ARG1",params[1]).replace("ARG2",params[2]).replace("ARG3",params[3]).replace("ARG4",params[4]).replace("ARG5",params[5]).replace("ARG6",params[6]).replace("ARG7",params[7]).replace("ARG8",params[8]).replace("ARG9",params[9]));
+}
 function compile (code) {
 var c = code.split(";");
 var params = [];
   var command = [];
   for (var i=0; i<c.length; i++) {
-    params = splitCode(c[i],"|","$");
-command = params[0];
-    params = splitCode(params[1],' ','"');
-    // coming soon: reporter block-like functions
+    console.log(compileLine(c[i],params,command));
 }
 }
