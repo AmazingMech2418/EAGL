@@ -18,7 +18,7 @@ for(var i=0; i<this.length; i++) {
   return a;
 }
 // From Failed Language EasyCode
-function splitCode(code,splitter,nodata) {
+function splitCode(code,splitter,nodata,keep) {
   var a = [""];
   var nodataB = 0;
   for (var i=0; i<code.length; i++) {
@@ -29,6 +29,7 @@ function splitCode(code,splitter,nodata) {
           } else {
           nodataB=0;
           }
+      if(keep) {a[a.length-1]+=code[i];}
     }
     if (code[i]===splitter && nodataB===0) {
         a.push("");
@@ -39,9 +40,9 @@ function splitCode(code,splitter,nodata) {
   return a;
 }
 function compileLine(cmd,params, command) {
-params = splitCode(cmd,"|","$");
+params = splitCode(cmd,"|","$",true);
 command = params[0];
-    params = splitCode(params[1],' ','"');
+    params = splitCode(params[1],' ','"',false);
     for (var z=0; z<params.length; z++) {
     if (params[z].search("$")!==-1) {
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
