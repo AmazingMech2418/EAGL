@@ -43,7 +43,7 @@ var c = code.split(";");
 var params = [];
   var command = [];
   for (var i=0; i<c.length; i++) {
-    params = c[i].split("|");
+    params = splitCode(c[i],"|","$");
 command = params[0];
     params = splitCode(params[1],' ','"');
     // coming soon: reporter block-like functions
