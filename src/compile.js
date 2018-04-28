@@ -29,12 +29,14 @@ function splitCode(code,splitter,nodata,keep) {
           } else {
           nodataB=0;
           }
-      if(keep) {a[a.length-1]+=code[i];}
+      // if(keep) {a[a.length-1]+=code[i];}
     }
     if (code[i]===splitter && nodataB===0) {
         a.push("");
         } else {
+          if((keep) || (code[i]!==nodata)){
         a[a.length-1]+=code[i];
+          }
         }
   }
   return a;
@@ -42,7 +44,8 @@ function splitCode(code,splitter,nodata,keep) {
 function compileLine(cmd,params, command) {
 params = splitCode(cmd,"|","$",true);
 command = params[0];
-    params = splitCode(params[1],' ','"',false);
+   // params = splitCode(params[1],' ','"',false);
+  params.shift();
     for (var z=0; z<params.length; z++) {
     if (params[z].search("$")!==-1) {
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
