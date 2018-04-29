@@ -41,7 +41,7 @@ function splitCode(code,splitter,nodata,keep) {
   }
   return a;
 }
-function compileLine(cmd,params, command) {
+function compileLine(cmd) {
 params = splitCode(cmd,"|","$",true);
 command = params[0];
    // params = splitCode(params[1],' ','"',false);
