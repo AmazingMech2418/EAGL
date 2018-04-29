@@ -42,6 +42,8 @@ function splitCode(code,splitter,nodata,keep) {
   return a;
 }
 function compileLine(cmd) {
+  var params = [];
+  var command = [];
 params = splitCode(cmd,"|","$",true);
 command = params[0];
    // params = splitCode(params[1],' ','"',false);
@@ -51,13 +53,12 @@ command = params[0];
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
-  return eval(functions[command].replace("ARG0",params[0]).replace("ARG1",params[1]).replace("ARG2",params[2]).replace("ARG3",params[3]).replace("ARG4",params[4]).replace("ARG5",params[5]).replace("ARG6",params[6]).replace("ARG7",params[7]).replace("ARG8",params[8]).replace("ARG9",params[9]));
+  return functions[command](params);
 }
 function compile (code) {
 var c = code.split(";");
-var params = [];
-  var command = [];
+
   for (var i=0; i<c.length; i++) {
-    console.log(compileLine(c[i],params,command));
+    console.log(compileLine(c[i]));
 }
 }
