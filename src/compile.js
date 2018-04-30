@@ -68,6 +68,6 @@ function filter(params) {
 }
 function run(cmdlol,params) {
   var lol = functionslol[cmdlol];
-  var rtrn = lol(params);
-  return rtrn;
+  var rtrn = lol;
+  return rtrn(params);
 }
