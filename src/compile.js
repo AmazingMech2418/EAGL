@@ -47,7 +47,7 @@ function compileLine(cmd) {
 params = splitCode(cmd,"|","$",true);
 cmdlol = params[0];
    // params = splitCode(params[1],' ','"',false);
-filter();
+filter(params);
   return run(cmdlol,params);
 
 }
