@@ -1,2 +1,2 @@
 # EAGL
-Executable Application Graphics Language
+EAGL or Executable Application Graphics Language is a 100% NodeJS programming language. The Alpha release is almost out, so be prepared for an advacement in programming! EAGL will combine executable languages and graphical languages to form one of the most powerful programming languages. They syntax is also simple, so it is like a combination of Ruby, HTML5, Bash, Batch, JavaScript, Python, and C. These powerful languages can do a lot, but not as much as EAGL.
