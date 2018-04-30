@@ -1,6 +1,6 @@
 # EAGL
 ## Compilations' Status
 Lib - up to date
-Src - needs update
+Src - Up to date
 Total - needs update
 Modules -up to date
