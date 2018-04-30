@@ -85,7 +85,7 @@ var c = code.split(";");
 function filter(params) {
   params.shift();
     for (var z=0; z<params.length; z++) {
-    if (params[z].indexOf("$")!==-1) {
+    if (params[z].indexOf("(")!==-1) {
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
