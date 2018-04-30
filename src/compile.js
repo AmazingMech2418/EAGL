@@ -47,7 +47,7 @@ function compileLine(cmd) {
 params = splitCode(cmd,"|","$",true);
 cmdlol = params[0];
    // params = splitCode(params[1],' ','"',false);
-filter(params);
+params = filter(params);
   return run(cmdlol,params);
 
 }
@@ -65,6 +65,7 @@ function filter(params) {
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
+  return params;
 }
 function run(cmdlol,params) {
   var lol = functionslol[cmdlol];
