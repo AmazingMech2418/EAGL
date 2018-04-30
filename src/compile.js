@@ -1,5 +1,5 @@
 // from ObjectifyJS strings
-var functions = {};
+var functionslol = {};
 String.prototype.splitBrackets=function(open,close) {
 var a = [""];
 var brackets = 0;
@@ -53,7 +53,7 @@ command = params[0];
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
-  var lol = functions[command].toString();
+  var lol = functionslol[command].toString();
   return eval(lol)(params);
 }
 function compile (code) {
