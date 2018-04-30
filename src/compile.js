@@ -58,7 +58,7 @@ var c = code.split(";");
     console.log(compileLine(c[i]));
 }
 }
-function filter() {
+function filter(params) {
   params.shift();
     for (var z=0; z<params.length; z++) {
     if (params[z].search("$")!==-1) {
