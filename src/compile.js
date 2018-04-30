@@ -47,14 +47,9 @@ function compileLine(cmd) {
 params = splitCode(cmd,"|","$",true);
 cmdlol = params[0];
    // params = splitCode(params[1],' ','"',false);
-  params.shift();
-    for (var z=0; z<params.length; z++) {
-    if (params[z].search("$")!==-1) {
-    params[z] = compileLine(params[z].slice(1,params[z].length-1));
-    }
-    }
-  var lol = functionslol[cmdlol].toString();
-  return eval(lol)(params);
+filter();
+  var lol = functionslol[cmdlol];
+  return lol(params);
 }
 function compile (code) {
 var c = code.split(";");
@@ -62,4 +57,12 @@ var c = code.split(";");
   for (var i=0; i<c.length; i++) {
     console.log(compileLine(c[i]));
 }
+}
+function filter() {
+  params.shift();
+    for (var z=0; z<params.length; z++) {
+    if (params[z].search("$")!==-1) {
+    params[z] = compileLine(params[z].slice(1,params[z].length-1));
+    }
+    }
 }
