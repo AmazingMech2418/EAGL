@@ -43,9 +43,9 @@ function splitCode(code,splitter,nodata,keep) {
 }
 function compileLine(cmd) {
   var params = [];
-  var command = "";
+  var cmdlol = "";
 params = splitCode(cmd,"|","$",true);
-command = params[0];
+cmdlol = params[0];
    // params = splitCode(params[1],' ','"',false);
   params.shift();
     for (var z=0; z<params.length; z++) {
@@ -53,7 +53,7 @@ command = params[0];
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
-  var lol = functionslol[command].toString();
+  var lol = functionslol[cmdlol].toString();
   return eval(lol)(params);
 }
 function compile (code) {
