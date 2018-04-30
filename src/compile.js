@@ -41,10 +41,34 @@ function splitCode(code,splitter,nodata,keep) {
   }
   return a;
 }
+function splitCodeTwo(code,splitter,nodata,nodataend,keep) {
+  var a = [""];
+  var nodataB = 0;
+  for (var i=0; i<code.length; i++) {
+    
+    if (nodata.indexOf(code[i])!==-1) {
+      nodataB++;
+      // if(keep) {a[a.length-1]+=code[i];}
+    }
+    if (nodataend.indexOf(code[i])!==-1) {
+      nodataB--;
+      // if(keep) {a[a.length-1]+=code[i];}
+    }
+    if (code[i]===splitter && nodataB===0) {
+        a.push("");
+        } else {
+          if((keep) || (code[i]!==nodata)){
+        a[a.length-1]+=code[i];
+          }
+        }
+  }
+  return a;
+}
 function compileLine(cmd) {
   var params = [];
   var cmdlol = "";
-params = splitCode(cmd,"|","$",true);
+//params = splitCode(cmd,"|","$",true);
+  params = splitCodeTwo(cmd,"|","(",")",true);
 cmdlol = params[0];
    // params = splitCode(params[1],' ','"',false);
 params = filter(params);
