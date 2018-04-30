@@ -53,7 +53,8 @@ command = params[0];
     params[z] = compileLine(params[z].slice(1,params[z].length-1));
     }
     }
-  return functions[command](params);
+  var lol = functions[command];
+  return lol(params);
 }
 function compile (code) {
 var c = code.split(";");
